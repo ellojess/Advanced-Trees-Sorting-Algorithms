@@ -10,6 +10,34 @@ def merge(items1, items2):
     # TODO: Find minimum item in both lists and append it to new list
     # TODO: Append remaining items in non-empty list to new list
 
+    new_sorted_list = [] 
+
+    # if both lists are empty 
+    if not items1 and not items2:
+      return new_sorted_list
+    # if items1 is not empty but item2 is empty
+    if items1 and not items2: 
+      return new_sorted_list + items1
+    # if items2 is not empty but item1 is empty
+    if not items1 and items2: 
+      return new_sorted_list + items2
+    # if neither lists are empty
+    if items1 and items2: 
+      # if item in item1 is less than or equal to item in items2
+      if items1[0] <= items2[0]:
+        # append item in item1 to new_sorted_list
+        new_sorted_list.append(items1[0])
+        new_sorted_list += merge(items1[1:], items2) # recursive call until end of list
+        print(new_sorted_list)
+      # if item in item1 is greater than item in items2
+      if items1[0] > items2[0]:
+        # append item in item2 to new_sorted_list
+        new_sorted_list.append(items2[0])
+        new_sorted_list += merge(items1, items2[1:]) # recursive call until end of list
+    return new_sorted_list
+
+
+
 
 def split_sort_merge(items):
     """Sort given items by splitting list into two approximately equal halves,
