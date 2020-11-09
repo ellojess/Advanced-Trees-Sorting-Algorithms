@@ -38,16 +38,25 @@ def merge(items1, items2):
 
 
 
-
 def split_sort_merge(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each with an iterative sorting algorithm, and merging results into
     a list in sorted order.
     TODO: Running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
+
+    # if list is empty 
+    if not items or len(items) <= 1:
+      return items
+
     # TODO: Split items list into approximately equal halves
-    # TODO: Sort each half using any other sorting algorithm
-    # TODO: Merge sorted halves into one list in sorted order
+    mid = len(items)//2
+    left = items[0:mid]
+    right = items[mid:]
+    # Sort each half using any other sorting algorithm
+    # Merge sorted halves into one list in sorted order
+    return merge(split_sort_merge(left), split_sort_merge(right))
+
 
 
 def merge_sort(items):
@@ -55,10 +64,18 @@ def merge_sort(items):
     sorting each recursively, and merging results into a list in sorted order.
     TODO: Running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
-    # TODO: Check if list is so small it's already sorted (base case)
-    # TODO: Split items list into approximately equal halves
-    # TODO: Sort each half by recursively calling merge sort
-    # TODO: Merge sorted halves into one list in sorted order
+
+    # Check if list is empty or so small it's already sorted (base case)
+    if not items or len(items) <= 1:
+      return items
+
+    # Split items list into approximately equal halves
+    mid = len(items)//2
+    left = items[0:mid]
+    right = items[mid:]
+    # Sort each half using any other sorting algorithm
+    # Merge sorted halves into one list in sorted order
+    return merge(merge_sort(left), merge_sort(right))
 
 
 def partition(items, low, high):
@@ -74,6 +91,8 @@ def partition(items, low, high):
     # TODO: Move items greater than pivot into back of range [p+1...high]
     # TODO: Move pivot item into final position [p] and return index p
 
+    
+
 
 def quick_sort(items, low=None, high=None):
     """Sort given items in place by partitioning items in range `[low...high]`
@@ -85,3 +104,4 @@ def quick_sort(items, low=None, high=None):
     # TODO: Check if list or range is so small it's already sorted (base case)
     # TODO: Partition items in-place around a pivot and get index of pivot
     # TODO: Sort each sublist range by recursively calling quick sort
+
