@@ -5,11 +5,8 @@ import random
 def merge(items1, items2):
     """Merge given lists of items, each assumed to already be in sorted order,
     and return a new list containing all items in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
-    # TODO: Repeat until one list is empty
-    # TODO: Find minimum item in both lists and append it to new list
-    # TODO: Append remaining items in non-empty list to new list
+    Running time: O(1) at pushes, O(n) at relocation 
+    Memory usage:O(1)"""
 
     new_sorted_list = [] 
 
@@ -43,8 +40,8 @@ def split_sort_merge(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each with an iterative sorting algorithm, and merging results into
     a list in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    Running time: O(n*Log n) in all cases 
+    Memory usage: O(1)"""
 
     # if list is empty 
     if not items or len(items) <= 1:
@@ -63,8 +60,8 @@ def split_sort_merge(items):
 def merge_sort(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each recursively, and merging results into a list in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    Running time: O(n*Log n) in all cases 
+    Memory usage: O(1) """
 
     # Check if list is empty or so small it's already sorted (base case)
     if not items or len(items) <= 1:
@@ -84,11 +81,12 @@ def partition(items, low, high):
     `[low...high]` by choosing a pivot (random pivot point) from
     that range, moving pivot into index `p`, items less than pivot into range
     `[low...p-1]`, and items greater than pivot into range `[p+1...high]`.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    Running time: O(n) looping through range 
+    Memory usage: O(1) """
     # Choose a pivot randomly
     random_index = random.randrange(low, high) # pivotal value 
-    items[high], items[random_index] = items[random_index], items[high] # swap with items[high], pivot value is index where "high" values start
+    # swap with items[high], pivot value is index where "high" values start
+    items[high], items[random_index] = items[random_index], items[high]
   
     pivot = low
 
@@ -109,17 +107,17 @@ def partition(items, low, high):
 def quick_sort(items, low=None, high=None):
     """Sort given items in place by partitioning items in range `[low...high]`
     around a pivot item and recursively sorting each remaining sublist range.
-    TODO: Best case running time: ??? Why and under what conditions?
-    TODO: Worst case running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    Best case running time: O(n log n)(simple partition) or O(n) (three-way partition and equal keys)
+    Worst case running time: O(n)^2 when picked pivot is an extreme (highest or lowest)
+    Memory usage: O(1) """
     # TODO: Check if high and low range bounds have default values (not given)
-    # TODO: Check if list or range is so small it's already sorted (base case)
+
+    # Check if list or range is so small it's already sorted (base case)
     if len(items) <= 1:
       return items
-    # TODO: Partition items in-place around a pivot and get index of pivot
 
-    # TODO: Sort each sublist range by recursively calling quick sort
-
+    # Partition items in-place around a pivot and get index of pivot
+    # Sort each sublist range by recursively calling quick sort
     if low < high: 
       pivot = partition(items, low, high)
       quick_sort(items, low, pivot - 1)
