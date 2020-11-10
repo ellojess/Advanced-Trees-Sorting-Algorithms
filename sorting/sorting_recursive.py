@@ -71,6 +71,7 @@ def merge_sort(items):
     mid = len(items)//2
     left = items[0:mid]
     right = items[mid:]
+    
     # Sort each half using any other sorting algorithm
     # Merge sorted halves into one list in sorted order
     return merge(merge_sort(left), merge_sort(right))
