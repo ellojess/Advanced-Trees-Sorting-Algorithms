@@ -5,8 +5,8 @@ from sorting_iterative import insertion_sort
 def bucket_sort(numbers):
     """Sort given numbers by distributing into buckets representing subranges,
     then sorting each bucket and concatenating all buckets in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    Running time: O(n + k) for best case and average case and O(n^2) for the worst case
+    Memory usage: O(n + k)"""
     # FIXME: Improve this to mutate input instead of creating new output list
 
     # Find range of given numbers (minimum and maximum values)

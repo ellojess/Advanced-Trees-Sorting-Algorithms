@@ -2,9 +2,10 @@
 
 def is_sorted(items):
     """Return a boolean indicating whether given items are in sorted order.
-    TODO: Running time: O(n) 
-    TODO: Memory usage: O(1) 
-    TODO: Check that all adjacent items are in order, return early if so"""
+    Running time: O(n) 
+    Memory usage: O(1) 
+    
+    Check that all adjacent items are in order, return early if so"""
 
     # loop through items in the list 
     for i in range(len(items)-1):
@@ -19,10 +20,11 @@ def is_sorted(items):
 def bubble_sort(items):
     """Sort given items by swapping adjacent items that are out of order, and
     repeating until all items are in sorted order.
-    TODO: Running time: O(n)
-    TODO: Memory usage: O(1)
-    TODO: Repeat until all items are in sorted order
-    TODO: Swap adjacent items that are out of order"""
+    Running time: O(n)
+    Memory usage: O(1)
+
+    Repeat until all items are in sorted order
+    Swap adjacent items that are out of order"""
 
     swap = False
 
@@ -44,11 +46,12 @@ def bubble_sort(items):
 def selection_sort(items):
     """Sort given items by finding minimum item, swapping it with first
     unsorted item, and repeating until all items are in sorted order.
-    TODO: Running time: O(n^2)
-    TODO: Memory usage: O(1)
-    TODO: Repeat until all items are in sorted order
-    TODO: Find minimum item in unsorted items
-    TODO: Swap it with first unsorted item """
+    Running time: O(n^2)
+    Memory usage: O(1)
+
+    Repeat until all items are in sorted order
+    Find minimum item in unsorted items
+    Swap it with first unsorted item """
 
     # loop through items in list 
     for i in range(len(items)):
@@ -66,11 +69,12 @@ def selection_sort(items):
 def insertion_sort(items):
     """Sort given items by taking first unsorted item, inserting it in sorted
     order in front of items, and repeating until all items are in order.
-    TODO: Running time: O(n^2)
-    TODO: Memory usage: O(1)
-    TODO: Repeat until all items are in sorted order
-    TODO: Take first unsorted item
-    TODO: Insert it in sorted order in front of items"""
+    Running time: O(n^2)
+    Memory usage: O(1)
+
+    Repeat until all items are in sorted order
+    Take first unsorted item
+    nsert it in sorted order in front of items"""
     
     # loop through items in list
     for i in range(len(items)):
