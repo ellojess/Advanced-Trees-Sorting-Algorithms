@@ -6,6 +6,11 @@ from sorting_recursive import merge_sort, quick_sort
 
 sort = merge_sort
 
+def random_ints(count=20, min=1, max=50):
+    """Return a list of `count` integers sampled uniformly at random from
+    given range [`min`...`max`] with replacement (duplicates are allowed)."""
+    return [random.randint(min, max) for _ in range(count)]
+
 def test_is_sorted_on_sorted_integers():
     # Positive test cases (examples) with lists of sorted integers
     assert is_sorted([]) is True  # Empty lists are vacuously sorted
