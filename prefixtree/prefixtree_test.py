@@ -2,6 +2,7 @@
 
 from prefixtree import PrefixTree, PrefixTreeNode
 import unittest
+import pytest
 
 
 class PrefixTreeTest(unittest.TestCase):
